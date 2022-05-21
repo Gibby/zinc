@@ -53,15 +53,15 @@ ingress:
     nginx.ingress.kubernetes.io/ssl-passthrough: "false"
     kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-    external-dns.alpha.kubernetes.io/hostname: zinc.theawsgurus.com
-    external-dns.alpha.kubernetes.io/target: c1-ext.theawsgurus.com
+    external-dns.alpha.kubernetes.io/hostname: zinc.example.com
+    external-dns.alpha.kubernetes.io/target: c1-ext.example.com
     external-dns/cloudflare-is-public: "true"
   hosts:
-    - host: zinc.theawsgurus.com
+    - host: zinc.example.com
   tls:
-    - secretName: zinc.theawsgurus.com
+    - secretName: zinc.example.com
       hosts:
-        - zinc.theawsgurus.com
+        - zinc.example.com
 resources:
    limits:
      cpu: 1024m
