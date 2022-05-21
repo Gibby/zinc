@@ -44,18 +44,25 @@ service:
   port: 4080
 
 ingress:
-  enabled: false
+  enabled: true
   annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
+    kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "false"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    external-dns.alpha.kubernetes.io/hostname: zinc.theawsgurus.com
+    external-dns.alpha.kubernetes.io/target: c1-ext.theawsgurus.com
+    external-dns/cloudflare-is-public: "true"
   hosts:
-    - host: zinc.example.local
+    - host: zinc.theawsgurus.com
       paths:
         - /
   tls:
-    - secretName: chart-example-tls
+    - secretName: zinc.theawsgurus.com
       hosts:
-        - chart-example.local
+        - zinc.theawsgurus.com
 
 resources:
    limits:
