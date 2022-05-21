@@ -37,10 +37,9 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
-          {{- range .paths }}
-          - path: {{ .path }}
+          - path: /
             {{- if (eq $apiVersion "networking.k8s.io/v1") }}
-            pathType: {{ default "Prefix" .pathType }}
+            pathType: Prefix
             {{- end }}
             backend:
             {{- if eq $apiVersion "networking.k8s.io/v1" }}
@@ -52,6 +51,5 @@ spec:
               serviceName: {{ $fullName }}
               servicePort: {{ $svcPort  }}
             {{- end }}
-          {{- end }}
     {{- end }}
 {{- end }}

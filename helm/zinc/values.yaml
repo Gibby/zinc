@@ -58,9 +58,6 @@ ingress:
     external-dns/cloudflare-is-public: "true"
   hosts:
     - host: zinc.theawsgurus.com
-      paths:
-        - path: /
-          pathType: Prefix
   tls:
     - secretName: zinc.theawsgurus.com
       hosts:
