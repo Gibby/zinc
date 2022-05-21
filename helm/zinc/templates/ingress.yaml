@@ -30,17 +30,17 @@ spec:
   {{- end }}
   rules:
     {{- range .Values.ingress.hosts }}
-    - host: {{ .host  }}
+    - host: {{ .host }}
       http:
         paths:
           {{- range .paths }}
-          - path: {{ path. }}
-            pathType: {{ .pathType }}
-            backend:
-              service:
-                name: {{ $fullName }}
-                port:
-                  number: {{ $svcPort }}
-            {{- end }}
+          - path: {{ . }}
+            pathType: Prefix
+              - backend:
+                service:
+                  name: {{ $fullName }}
+                  port:
+                    number: {{ $svcPort }}
+          {{- end }}
     {{- end }}
   {{- end }}

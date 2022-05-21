@@ -55,10 +55,10 @@ ingress:
     external-dns.alpha.kubernetes.io/hostname: zinc.theawsgurus.com
     external-dns.alpha.kubernetes.io/target: c1-ext.theawsgurus.com
     external-dns/cloudflare-is-public: "true"
-   hosts:
-     host: zinc.theawsgurus.com
-      - path: /
-        pathType: Prefix
+  hosts:
+    - host: zinc.theawsgurus.com
+      paths:
+        - /
   tls:
     - secretName: zinc.theawsgurus.com
       hosts:
