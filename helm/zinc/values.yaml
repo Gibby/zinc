@@ -23,7 +23,7 @@ serviceAccount:
 # Credentials for authentication
 auth:
   username: "admin"
-  password: "Complexpass#123"
+  password: "Complex-Pass-Word-123"
 
 persistence:
   # Enable Zinc data persistence using PVC, otherwise empty-dir is used
@@ -57,8 +57,9 @@ ingress:
     external-dns/cloudflare-is-public: "true"
   hosts:
     - host: zinc.theawsgurus.com
-      paths:
-        - /
+      - paths:
+          - path: /
+            pathType: Prefix
   tls:
     - secretName: zinc.theawsgurus.com
       hosts:
