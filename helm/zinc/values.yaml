@@ -62,7 +62,6 @@ ingress:
     - secretName: zinc.theawsgurus.com
       hosts:
         - zinc.theawsgurus.com
-
 resources:
    limits:
      cpu: 1024m
