@@ -48,6 +48,7 @@ Selector labels
 {{- define "zinc.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "zinc.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+app: {{ include "zinc.name" . }}
 {{- end }}
 
 {{/*
